@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prime Numbers</title>
+</head>
+<body>
+  <h1>Prime Numbers</h1>
+  <ul id="prime-numbers"></ul>
+
+  <script>
+    function isPrime(n) {
+      if (n <= 1) return false;
+      for (var i = 2; i * i <= n; i++) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    var primeNumbers = [];
+    for (var i = 2; i <= 100; i++) { // generate prime numbers up to 100
+      if (isPrime(i)) primeNumbers.push(i);
+    }
+
+    var list = document.getElementById("prime-numbers");
+    primeNumbers.forEach(function(prime) {
+      var listItem = document.createElement("li");
+      listItem.textContent = prime;
+      list.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
